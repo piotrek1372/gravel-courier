@@ -16,5 +16,3 @@ def main():
         screen.fill((222, 244, 242))
         pygame.display.flip()
     pygame.quit()
-
-        
