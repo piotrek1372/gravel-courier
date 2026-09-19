@@ -13,7 +13,7 @@ class Car:
     def update(self, dt, keys):
         if keys[pygame.K_w] or keys[pygame.K_UP]:
             self.speed = self.acc
-        self.pos[0] += self.speed * dt
+        self.pos[1] -= self.speed * dt
 
     def draw(self, screen):
         rect = pygame.draw.rect(screen, "red", (self.pos[0], self.pos[1], 100, 300))

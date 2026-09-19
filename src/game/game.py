@@ -15,7 +15,6 @@ def main():
                 running = False
         keys = pygame.key.get_pressed()
         screen.fill((222, 244, 242))
-        courier_car.__init__()
         courier_car.update(dt, keys)
         courier_car.draw(screen)
         pygame.display.flip()
