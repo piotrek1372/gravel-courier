@@ -1,3 +1,5 @@
+import pygame
+
 class Car:
     def __init__(self):
         self.x = 500
@@ -9,4 +11,10 @@ class Car:
         self.braking_force = 1
         self.turning_speed = 1.1
 
-    def update(self):
+    def update(self, dt, keys):
+        if keys[pygame.K_w] or keys[pygame.K_UP]:
+            self.speed = self.acc
+        self.x += self.speed * dt
+
+    def draw(self, screen):
+        rect = pygame.draw.rect(screen, "red", (self.x, self.y, 100, 300))

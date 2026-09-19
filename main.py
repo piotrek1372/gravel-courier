@@ -1,5 +1,5 @@
-from src.app import main
+import src.game.game
 
 
 if __name__ == "__main__":
-    main()
+    src.game.game.main()
