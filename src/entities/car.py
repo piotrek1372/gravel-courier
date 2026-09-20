@@ -11,7 +11,9 @@ class Car:
         self.acc = 2
         self.max_speed = 40
         self.braking_force = 1
-        self.turning_speed = 1.4
+        self.turning_speed = 1.1
+        self.image = pygame.Surface([100, 300])
+        self.image.fill("red")
 
     def update(self, dt, keys):
         if keys[pygame.K_w] or keys[pygame.K_UP]:
@@ -29,4 +31,5 @@ class Car:
 
 
     def draw(self, screen):
-        self.rect = pygame.draw.rect(screen, "red", (self.pos[0], self.pos[1], 100, 300))
+        self.rotated_image = pygame.transform.rotate(self.image, self.angle)
+        screen.blit(self.rotated_image, (self.pos[0], self.pos[1]) )
