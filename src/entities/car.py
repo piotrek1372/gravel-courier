@@ -32,5 +32,5 @@ class Car:
 
     def draw(self, screen):
         self.rotated_image = pygame.transform.rotate(self.image, self.angle)
-        self.pos[0], self.pos[1] = self.rotated_image.get_rect().centerx, self.rotated_image.get_rect().centery
+        self.rotated_rect = self.rotated_image.get_rect().centerx, self.rotated_image.get_rect().centery
         screen.blit(self.rotated_image, self.pos)
