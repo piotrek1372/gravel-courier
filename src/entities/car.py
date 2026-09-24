@@ -17,7 +17,7 @@ class Car:
 
     def update(self, dt, keys):
         if keys[pygame.K_w] or keys[pygame.K_UP]:
-            self.speed += self.acc * dt
+            self.speed += self.acc
         elif keys[pygame.K_s] or keys[pygame.K_DOWN]:
             self.speed -= self.braking_force * dt
         if keys[pygame.K_a] or keys[pygame.K_LEFT]:
@@ -26,10 +26,11 @@ class Car:
             self.angle += self.turning_speed * dt
         self.direction_x = math.sin(self.angle)
         self.direction_y = -math.cos(self.angle)
-        self.pos[0] += self.direction_x * self.speed
-        self.pos[1] += self.direction_y * self.speed
+        self.pos[0] += self.direction_x * self.speed * dt
+        self.pos[1] += self.direction_y * self.speed * dt
 
 
     def draw(self, screen):
         self.rotated_image = pygame.transform.rotate(self.image, self.angle)
-        screen.blit(self.rotated_image, (self.rotated_image.get_rect().centerx, self.rotated_image.get_rect().centery))
+        self.pos[0], self.pos[1] = self.rotated_image.get_rect().centerx, self.rotated_image.get_rect().centery
+        screen.blit(self.rotated_image, self.pos)
